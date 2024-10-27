@@ -1,23 +1,20 @@
 import React from "react";
-import PropertyLocation from "./PropertyLocation";
-import PropertyImage from "./PropertyImage";
-import PropertyTitle from "./PropertyTitle";
-import PropertyPrice from "./PropertyPrice";
 
-const Property = (props) => {
-  const { property, onHandleDelete } = props;
-
-  const handleDelete = (id) => {
-    onHandleDelete(id);
+const Property = ({ property, onHandleDelete }) => {
+  const handleDelete = () => {
+    onHandleDelete(property.id);
   };
-
+  console.log("image of property ", property.image);
   return (
     <div className="property">
-      <PropertyImage image={property.image} title={property.title} />
-      <PropertyTitle title={property.title} />
-      <PropertyLocation location={property.location} />
-      <PropertyPrice price={property.price} />
-      <button onClick={() => handleDelete(property.id)}>Delete</button>
+      
+      {property.image && (
+        <img src={property.image} alt={property.title} width="100" />
+      )}
+      <h3>{property.title}</h3>
+      <p>Location: {property.location}</p>
+      <p>Price: ${property.price}</p>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 };
