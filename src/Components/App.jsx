@@ -8,7 +8,6 @@ import {
 import Properties from "./Properties";
 import AddPropertyForm from "./AddPropertyForm";
 import Layout from "./Layout";
-import EditProperty from "./EditProperty";
 import Login from "./Login";
 import PrivateRoute from "./PrivateRoute"; 
 
@@ -82,14 +81,6 @@ const App = () => {
             }
           />
 
-          <Route
-            path="/edit-property/:id"
-            element={
-              <PrivateRoute isAuthenticated={isAuthenticated}>
-                <EditProperty />
-              </PrivateRoute>
-            }
-          />
         </Routes>
       </Layout>
     </Router>
